@@ -1,0 +1,24 @@
+#laatikko{
+    text-align: center
+}
+* {
+font-family: Tahoma,Verdana, sans-serif;
+
+}
+body{
+    background-color: #C0C2C8;
+    color:#43655A;
+}
+#nappi,h1{
+    margin: 15px;
+    
+}
+#tarina{
+    width: 75%;
+    margin: auto;
+}
+img{
+    width: 100%;
+    max-width: 500px;
+    margin-top: 10px;
+}
