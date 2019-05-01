@@ -1,4 +1,4 @@
-#laatikko{
+#box{
     text-align: center
 }
 * {
@@ -9,11 +9,11 @@ body{
     background-color: #C0C2C8;
     color:#43655A;
 }
-#nappi,h1{
+#getMovie,h1{
     margin: 15px;
     
 }
-#tarina{
+#description{
     width: 75%;
     margin: auto;
 }

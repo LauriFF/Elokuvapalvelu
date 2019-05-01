@@ -1,34 +1,38 @@
-let nappi = document.getElementById('nappi')
-let kuva = document.getElementById('kuva')
-let nimiKokeilu = document.getElementById('input')
-let tarina = document.getElementById('tarina')
-let nappi2 =document.getElementById('nappi2')
+let getMovie = document.getElementById('getMovie')
+let image = document.getElementById('image')
+let namingAttemptInput = document.getElementById('input')
+let description = document.getElementById('description')
+let giveUpButton = document.getElementById('giveUpButton')
+let quessButton = document.getElementById('quessButton')
 let data
 
-const kuvanPaljastus = ()=>{
-    kuva.src = data.osoite
+const imageReveal = ()=>{
+    image.src = data.movieUrl
 }
-nappi2.onclick= ()=>{
-    if(tarina!==undefined){
-        kuvanPaljastus()
+giveUpButton.onclick= ()=>{
+    if(description!==undefined){
+        imageReveal()
     }
 }
 
-nimiKokeilu.onkeyup = ()=>{
-    if(tarina!==undefined){
-        if(nimiKokeilu.value.toLowerCase() === data.nimi.toLowerCase()){
-            kuvanPaljastus(data)
+quessButton.onclick = ()=>{
+    if(description!==undefined){
+        if(namingAttemptInput.value.toLowerCase() === data.movieName.toLowerCase()){
+            imageReveal(data)
+        }
+        else{
+            alert('Wrong anwser')
         }
     }
 }
 
-const haku2 = async()=>{
-    nimiKokeilu.value = ''
-    kuva.src = ''
-    tarina.textContent = 'Loading resources'
-    osoite = await fetch('/osoite')
-    data = await osoite.json()
-    //console.log(data.nimi)
-    tarina.textContent = data.kuvaus
+const movieFetch = async()=>{
+    namingAttemptInput.value = ''
+    image.src = ''
+    description.textContent = 'Loading resources'
+    //tsekkaatoiiiko movieurl?
+    const movieUrl = await fetch('/movie')
+    data = await movieUrl.json()
+    description.textContent = data.description
 }
-nappi.addEventListener("click", haku2)
+getMovie.onclick =()=>movieFetch()
