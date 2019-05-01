@@ -30,7 +30,6 @@ const movieFetch = async()=>{
     namingAttemptInput.value = ''
     image.src = ''
     description.textContent = 'Loading resources'
-    //tsekkaatoiiiko movieurl?
     const movieUrl = await fetch('/movie')
     data = await movieUrl.json()
     description.textContent = data.description
